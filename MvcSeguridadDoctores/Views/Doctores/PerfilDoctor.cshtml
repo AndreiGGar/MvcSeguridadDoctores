@@ -1,0 +1,19 @@
+﻿
+<h4>
+    Este es tu perfil @Context.User.Identity.Name
+</h4>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        Oficio: @Context.User.FindFirst(ClaimTypes.Role).Value
+    </li>
+    <li class="list-group-item">
+        Salario: @Context.User.FindFirstValue("Salario")
+    </li>
+    <li class="list-group-item">
+        Apellido: @Context.User.FindFirstValue("Apellido")
+    </li>
+    <li class="list-group-item">
+        Hospital: @Context.User.FindFirstValue("Hospital")
+    </li>
+</ul>

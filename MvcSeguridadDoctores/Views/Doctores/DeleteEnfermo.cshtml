@@ -1,0 +1,13 @@
+﻿@model Enfermo
+
+<a asp-controller="Doctores" asp-action="Index">
+    Volver a Enfermos
+</a>
+
+<h4>
+    ¿Desea realmente eliminar el enfermo?
+</h4>
+
+<a asp-controller="Doctores" asp-action="Delete" asp-route-id="@Model.Inscripcion" class="btn btn-danger">
+    Delete Enfermo
+</a>
