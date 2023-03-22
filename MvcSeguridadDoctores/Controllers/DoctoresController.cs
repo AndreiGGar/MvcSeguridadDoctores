@@ -49,5 +49,11 @@ namespace MvcCoreSeguridadEmpleados.Controllers
         {
             return View();
         }
+
+        [AuthorizeDoctors(Policy = "RICOS")]
+        public IActionResult DoctoresRicos()
+        {
+            return View();
+        }
     }
 }

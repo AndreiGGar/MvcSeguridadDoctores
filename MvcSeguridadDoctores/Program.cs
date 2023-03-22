@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using MvcSeguridadDoctores.Context;
+using MvcSeguridadDoctores.Policies;
 using MvcSeguridadDoctores.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("PERMISOSELEVADOS", policy => policy.RequireRole("PSIQUIATRIA", "CARDIOLOGIA"));
     options.AddPolicy("ADMIN", policy => policy.RequireClaim("ADMINISTRADOR"));
+    options.AddPolicy("RICOS", policy => policy.Requirements.Add(new OverSalarioRequirement()));
 });
 
 // Add services to the container.

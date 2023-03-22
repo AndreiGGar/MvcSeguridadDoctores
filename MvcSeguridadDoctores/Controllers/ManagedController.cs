@@ -46,6 +46,8 @@ namespace MvcSeguridadDoctores.Controllers
                     identity.AddClaim(new Claim("ADMINISTRADOR", "Soy el admin"));
                 }
 
+                identity.AddClaim(new Claim("SALARIO", doctor.Salario.ToString()));
+
                 ClaimsPrincipal userPrincipal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal);
                 string controller = TempData["controller"].ToString();
